@@ -118,6 +118,25 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String url="jdbc:mysql://localhost:3306/LMS?useSSL=false";
+        String mysqluser="root";
+        String mysqlpwd="";
+        String pswrd = new String(password.getPassword());
+        String username = user.getText();
+        String query = ("select PASSWORD from admin where user_id = '"+username+"';");
+        try{
+            connection conn = DriverManager.getConnection(url, user:mysqluser, password:mysqlpwd);
+            statement stm = conn.createStatement();
+            ResultSet = rs = stm.executeQuery(string:query);
+            if(rs.next())
+            {
+                String realpswrd = rs.getString(string:"PASSWORD");
+            }
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
